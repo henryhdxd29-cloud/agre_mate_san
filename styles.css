@@ -1,0 +1,1520 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:#FFD515;
+    color: white;
+    font-family: arial, sans-serif;
+    margin: 0;
+}
+h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    color:#DE0B0F;
+    font-size: 4rem;
+    text-align: center;
+    margin-top: clamp(2rem, 8vh, 6rem);
+}
+
+/* CONTENEDOR PRINCIPAL (CUADRO FLOTANTE) */
+.inicio {
+    /* Cambiamos a posicionamiento relativo/bloque para que respete el texto de arriba */
+    position: relative;
+    
+    /* MARGEN SUPERIOR: Esto es lo que empuja el cuadro hacia abajo. 
+       Ajusta el '40px' si quieres que se separe más o menos del texto inicial */
+    margin: 40px auto 60px auto; 
+    
+    /* RESPONSIVIDAD: 90% de ancho en celulares, máximo 650px en computadoras */
+    width: 90%;             
+    max-width: 650px;       
+    height: auto;
+    
+    /* Diseño visual: Fondo translúcido con efecto desenfoque moderno */
+    background-color: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(8px);                 
+    
+    padding: 2.5rem 2rem;   /* Espaciado interno */
+    text-align: center;     /* Centra los textos y la imagen internamente */
+    border-radius: 8px;     /* Bordes redondeados sutiles */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+    
+    /* Detalle Caterpillar: Línea superior amarilla industrial */
+    border-top: 5px solid #FFCD00; 
+}
+
+/* TÍTULO: SOBRE NOSOTROS */
+.inicio .p1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111111;         
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;    
+}
+
+/* PARRAFO O TEXTO INFORMATIVO */
+.inicio .c1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+    color: #333333;         
+    line-height: 1.6;       
+    margin-bottom: 2rem;    /* Separa el texto de la imagen */
+}
+
+/* LA IMAGEN DENTRO DEL CUADRO */
+.inicio .maquinaria {
+    width: 100%;            
+    height: auto;           
+    max-height: 250px;      
+    object-fit: cover;      
+    border-radius: 4px;     
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+/* ------------------------------------------------------ */
+/* AJUSTES RESPONSIVOS PARA PANTALLAS PEQUEÑAS (MÓVILES) */
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+    .inicio {
+        margin: 20px auto 40px auto; /* Reduce el espacio en el celular para que no tengas que hacer mucho scroll */
+        padding: 1.5rem 1rem; 
+    }
+
+    .inicio .p1 {
+        font-size: 1.6rem;  
+    }
+
+    .inicio .c1 {
+        font-size: 0.95rem; 
+        margin-bottom: 1.5rem;
+    }
+}
+.navegacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--oscuro-cat);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000;
+    border-bottom: 4px solid var(--amarillo-cat); /* Detalle estético industrial */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo */
+/* CONTENEDOR DEL LOGO */
+/* ACTUALIZACIÓN DEL CONTENEDOR DEL LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* ACTUALIZACIÓN DE LA IMAGEN DEL LOGO CON BORDES REDONDEADOS */
+.logo img {
+    height: 45px;         
+    width: auto;          
+    display: block;
+    transition: transform 0.3s ease;
+    
+    /* === AGREGAR ESTAS LÍNEAS === */
+    border-radius: 8px;   /* Esto redondea los bordes externos de la caja del logo. Ajusta el '8px' si quieres que se redondee más o menos. */
+    overflow: hidden;    /* Asegura que la imagen se "corte" limpiamente en las esquinas redondeadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Opcional: una sombra sutil para despegarlo del fondo de la barra de navegación */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Opcional: un borde muy fino para delimitarlo mejor sobre fondos oscuros */
+}
+
+/* Efecto sutil al pasar el mouse sobre el logo (se mantiene) */
+.logo img:hover {
+    transform: scale(1.03); 
+}
+
+/* Menú de enlaces */
+.menu {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    align-items: center;
+}
+
+.menu li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: #000;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.menu a:hover {
+    color: var(--oscuro-cat);
+    background-color: var(--amarillo-cat); /* El enlace se ilumina en amarillo */
+}
+
+
+/* 3. RESPONSIVO (Para Celulares y Tablets) */
+@media (max-width: 768px) {
+    .navegacion {
+        padding: 0 20px; /* Menos espacio a los lados en pantallas chicas */
+    }
+
+    /* El menú se convierte en una lista vertical oculta o compacta */
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: var(--gris-oscuro);
+        border-bottom: 3px solid var(--amarillo-cat);
+        padding: 10px 0;
+        
+        /* Por defecto en un diseño responsivo real usarías JS para ocultarlo/mostrarlo.
+           Para mantenerlo simple aquí, los botones se acomodan uno abajo del otro uniformemente */
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .menu a {
+        width: 100%;
+        padding: 15px 20px;
+        justify-content: center; /* Centra el texto en móviles */
+        border-bottom: 1px solid #000;
+    }
+    
+    .menu a:hover {
+        background-color: var(--amarillo-cat);
+        color: var(--oscuro-cat);
+    }
+}
+
+/* CONTENEDOR GENERAL DE LA SECCIÓN */
+.servicios-contenedor {
+    width: 90%;
+    max-width: 1100px; /* Más ancho que el anterior porque ahora van dos columnas */
+    margin: 40px auto 60px auto; /* Mismo margen para mantener simetría */
+    padding: 0 10px;
+    text-align: center;
+}
+
+/* TÍTULO SUPERIOR */
+.servicios-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+}
+
+/* CONTENEDOR FLEXIBLE PARA PONERLAS A LA MISMA ALTURA */
+.servicios-bloque {
+    display: flex;
+    gap: 30px; /* Espacio de separación entre ambas tarjetas */
+    justify-content: space-between;
+    align-items: stretch; /* Obliga a que ambas tarjetas tengan exactamente la misma altura */
+}
+
+/* LAS TARJETAS INDIVIDUALES */
+.tarjeta-servicio {
+    flex: 1; /* Hace que ambas tarjetas midan exactamente lo mismo de ancho */
+    
+    /* Mismo estilo visual translúcido que tu sección Inicio */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    text-align: left; /* Alineación del texto a la izquierda para mejor lectura */
+    
+    /* Detalle Caterpillar */
+    border-top: 5px solid #FFCD00;
+    
+    /* Efecto interactivo al pasar el mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtítulos de las tarjetas */
+.tarjeta-servicio h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.4rem;
+    color: #111111;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Párrafos de las tarjetas */
+.tarjeta-servicio p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+    color: #444444;
+    line-height: 1.6;
+}
+
+/* ------------------------------------------------------ */
+/* AJUSTES RESPONSIVOS PARA CELULARES (PANTALLAS CHICAS) */
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+    .servicios-bloque {
+        flex-direction: column; /* En celulares, en lugar de ir de lado a lado, se ponen una abajo de la otra */
+        gap: 20px;
+    }
+    
+    .servicios-titulo {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .tarjeta-servicio {
+        padding: 2rem 1.5rem;
+    }
+}
+
+.enlace-tarjeta {
+    text-decoration: none; 
+    color: inherit;        
+    display: flex;        
+    flex: 1;              
+}
+
+.enlace-tarjeta:hover .tarjeta-servicio {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border-top-color: #FFCD00;
+}
+/* CONTENEDOR PRINCIPAL ACTUALIZADO (MÁS AMPLIO PARA EL CATÁLOGO) */
+.experiencia-contenedor {
+    position: relative;
+    margin: 40px auto 60px auto; 
+    width: 90%;             
+    max-width: 1100px; /* Ampliado para acomodar las tarjetas de obras */
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(8px);                 
+    padding: 3rem 2rem;   
+    text-align: center;     
+    border-radius: 8px;     
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
+    border-top: 5px solid #FFCD00; /* Identidad Caterpillar */
+}
+
+.experiencia-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111111;         
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;    
+}
+
+.experiencia-texto-principal {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;      
+    color: #333333;         
+    line-height: 1.7;
+    max-width: 850px;
+    margin: 0 auto 2.5rem auto; /* Centrado y espacio inferior */
+}
+
+/* SUBTÍTULO DEL CATÁLOGO */
+.experiencia-subtitulo {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #FFCD00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* REJILLA PARA LAS 6 TARJETAS DE OBRAS (2 Columnas en desktop) */
+.obras-catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+}
+
+/* TARJETA INDIVIDUAL DE OBRA */
+.tarjeta-obra {
+    background-color: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    border-bottom: 3px solid #FFCD00; /* Detalle amarillo inferior */
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-obra:hover {
+    transform: translateY(-5px); /* Pequeña animación al pasar el mouse */
+}
+
+/* MOSAICO TRIPLE DE IMÁGENES (3 imágenes alineadas lado a lado) */
+.mosaico-imagenes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    height: 140px; /* Altura fija controlada para las fotos */
+    background-color: #222;
+    gap: 2px; /* Línea fina divisoria entre fotos */
+}
+
+.mosaico-imagenes img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta y cuadra las fotos matemáticamente */
+    transition: opacity 0.3s ease;
+}
+
+.mosaico-imagenes img:hover {
+    opacity: 0.85; /* Sutil efecto visual al pasar el cursor sobre una foto */
+}
+
+/* CUERPO DE TEXTO DE CADA OBRA */
+.obra-info-texto {
+    padding: 20px 25px;
+    text-align: left;
+    flex-grow: 1; /* Hace que todas las cajas tengan la misma altura */
+    display: flex;
+    align-items: center;
+}
+
+.obra-info-texto p {
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #444444;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ------------------------------------------------------ */
+/* AJUSTES RESPONSIVOS PARA TABLETS Y MÓVILES             */
+/* ------------------------------------------------------ */
+@media (max-width: 900px) {
+    .obras-catalogo-grid {
+        grid-template-columns: 1fr; /* Pasa a 1 sola columna en pantallas medianas/chicas */
+        gap: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .experiencia-contenedor {
+        padding: 2rem 1rem;
+    }
+    
+    .experiencia-titulo {
+        font-size: 1.8rem;
+    }
+    
+    .experiencia-subtitulo {
+        font-size: 1.2rem;
+    }
+    
+    .mosaico-imagenes {
+        height: 100px; /* Fotos ligeramente más bajas en celulares */
+    }
+}
+
+/* ------------------------------------------------------ */
+/* AJUSTES RESPONSIVOS PARA CELULARES                     */
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+    .experiencia-contenedor {
+        margin: 20px auto 40px auto; 
+        padding: 2rem 1.5rem; /* Reduce espacios en pantallas chicas */
+    }
+
+    .experiencia-titulo {
+        font-size: 1.8rem;  /* Título adaptado a celular */
+    }
+
+    .experiencia-texto {
+        font-size: 1rem;    /* Texto ligeramente más compacto */
+    }
+}
+
+/* CONTENEDOR GENERAL DE LA FLOTA */
+.flota-contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto 60px auto; /* Mantiene la consistencia de espacios */
+    text-align: center;
+}
+
+/* TÍTULO DE LA SECCIÓN */
+.flota-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+}
+
+/* REJILLA (GRID) DE 3 COLUMNAS */
+.flota-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+    gap: 25px; /* Espaciado entre fotos */
+}
+
+/* TARJETA INDIVIDUAL DE MAQUINARIA */
+.tarjeta-flota {
+    position: relative;
+    height: 280px; /* Altura fija para que todas las tarjetas se vean alineadas */
+    border-radius: 8px;
+    overflow: hidden; /* Corta todo lo que sobresalga de las esquinas redondeadas */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-bottom: 4px solid #FFCD00; /* Detalle amarillo en la base */
+    background-color: #222; /* Fondo por si la imagen tarda en cargar */
+}
+
+/* AJUSTE DE LA IMAGEN DENTRO DE LA TARJETA */
+.tarjeta-flota img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen llene el espacio sin deformarse */
+    transition: transform 0.5s ease; /* Transición suave para el zoom */
+}
+
+/* CAPA TRANSLÚCIDA CON INFORMACIÓN (ESTILO HOVER) */
+.flota-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.9) 20%, rgba(17, 17, 17, 0.4) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Empuja el texto hacia la parte inferior */
+    padding: 20px;
+    text-align: left;
+    opacity: 0.9; /* Se ve el texto de fondo sutilmente por defecto */
+    transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+/* Textos dentro de la tarjeta */
+.flota-info h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    color: #FFCD00; /* Nombre de la máquina en amarillo Caterpillar */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.flota-info p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+/* EFECTOS INTERACTIVOS (AL PASAR EL MOUSE) */
+.tarjeta-flota:hover img {
+    transform: scale(1.08); /* Hace un sutil zoom a la maquinaria */
+}
+
+.tarjeta-flota:hover .flota-info {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.95) 40%, rgba(17, 17, 17, 0.6) 100%);
+}
+
+/* ------------------------------------------------------ */
+/* AJUSTES RESPONSIVOS PARA TABLETS Y CELULARES           */
+/* ------------------------------------------------------ */
+@media (max-width: 992px) {
+    .flota-grid {
+        grid-template-columns: repeat(2, 1fr); /* En tablets pasa a ser de 2 columnas */
+    }
+}
+
+@media (max-width: 576px) {
+    .flota-grid {
+        grid-template-columns: 1fr; /* En celulares pasa a ser de 1 sola columna */
+        gap: 20px;
+    }
+    
+    .flota-titulo {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .tarjeta-flota {
+        height: 240px; /* Un poco más bajas en pantallas verticales */
+    }
+}
+
+/* CONTENEDOR EXTERIOR (FONDO OSCURO INDUSTRIAL) */
+.elegirnos-seccion {
+    width: 100%;
+    background-color: #111111; /* Negro carbón estilo Caterpillar */
+    padding: 60px 0;
+    margin-top: 40px;
+    border-top: 4px solid #FFCD00;    /* Línea amarilla divisoria arriba */
+    border-bottom: 4px solid #FFCD00; /* Línea amarilla divisoria abajo */
+}
+
+/* CONTENEDOR INTERIOR CENTRADO */
+.elegirnos-contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* TÍTULO PRINCIPAL DE LA SECCIÓN */
+.elegirnos-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #FFFFFF; /* Texto blanco para resaltar sobre el fondo negro */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+}
+
+/* REJILLA DE 3 COLUMNAS */
+.elegirnos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+    gap: 30px;
+}
+
+/* TARJETAS INDIVIDUALES DE BENEFICIOS */
+.beneficio-tarjeta {
+    background-color: #1e1e1e; /* Un gris muy oscuro para dar contraste con el fondo */
+    padding: 40px 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por la tarjeta */
+.beneficio-tarjeta:hover {
+    transform: translateY(-5px);
+    background-color: #252525; /* Se aclara un poquito al hacer hover */
+}
+
+/* ICONOS */
+.beneficio-icono {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* SUBTÍTULOS (LOS PUNTOS FUERTES) */
+.beneficio-tarjeta h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    color: #FFCD00; /* El texto importante brilla en amarillo CAT */
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+/* PÁRRAFOS EXPLICATIVOS */
+.beneficio-tarjeta p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    color: #cccccc; /* Gris claro para una lectura cómoda en pantallas oscuras */
+    line-height: 1.6;
+}
+
+/* ------------------------------------------------------ */
+/* AJUSTES RESPONSIVOS PARA TABLETS Y CELULARES           */
+/* ------------------------------------------------------ */
+@media (max-width: 992px) {
+    .elegirnos-grid {
+        grid-template-columns: repeat(2, 1fr); /* Pasa a 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .elegirnos-seccion {
+        padding: 40px 0;
+    }
+    
+    .elegirnos-grid {
+        grid-template-columns: 1fr; /* 1 columna vertical en celulares */
+        gap: 20px;
+    }
+    
+    .elegirnos-titulo {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .beneficio-tarjeta {
+        padding: 30px 20px;
+    }
+}
+
+/* ====================================================== */
+/* 1. ESTILOS DE PREGUNTAS FRECUENTES (FAQ)               */
+/* ====================================================== */
+.faq-contenedor {
+    width: 90%;
+    max-width: 850px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.faq-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.faq-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Separación entre cada pregunta */
+}
+
+.faq-item {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 25px 30px;
+    border-radius: 6px;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #FFCD00; /* Detalle amarillo CAT a la izquierda */
+}
+
+.faq-item h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: #444444;
+    line-height: 1.6;
+}
+
+/* ====================================================== */
+/* 2. ESTILOS DEL LLAMADO A LA ACCIÓN (CTA)               */
+/* ====================================================== */
+.cta-seccion {
+    width: 100%;
+    background-color: #111111; /* Fondo oscuro industrial */
+    padding: 70px 0;
+    text-align: center;
+    border-top: 4px solid #FFCD00;
+}
+
+.cta-contenedor {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-contenedor h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.cta-contenedor p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    color: #cccccc;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* BOTÓN GIGANTE AMARILLO CATERPILLAR */
+.btn-cta {
+    display: inline-block;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #FFCD00;
+    color: #111111; /* Letras oscuras para máximo contraste */
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 800;
+    padding: 15px 40px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(255, 205, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón */
+.btn-cta:hover {
+    background-color: #e0b400; /* Un amarillo ligeramente más oscuro al presionar */
+    transform: translateY(-3px); /* Pequeño brinco hacia arriba */
+    box-shadow: 0 8px 25px rgba(255, 205, 0, 0.5);
+}
+
+/* ------------------------------------------------------ */
+/* RESPONSIVO PARA MÓVILES                                */
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+    .faq-titulo, .cta-contenedor h2 {
+        font-size: 1.8rem;
+    }
+    
+    .faq-item {
+        padding: 20px;
+    }
+    
+    .cta-seccion {
+        padding: 50px 0;
+    }
+    
+    .btn-cta {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+        width: 100%; /* El botón ocupa todo el ancho en celulares para que sea fácil picarle */
+    }
+}
+
+/* CONTENEDOR PRINCIPAL DEL FOOTER */
+.footer-sitio {
+    background-color: #111111; /* Negro carbón */
+    color: #ffffff;
+    padding: 60px 0 0 0; /* Espacio interno superior */
+    margin-top: 60px;
+    border-top: 4px solid #FFCD00; /* Línea divisoria amarilla superior */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* REJILLA DE 3 COLUMNAS */
+.footer-contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 40px auto; /* Centrado y espacio inferior antes de la línea final */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas exactamente iguales */
+    gap: 40px;
+}
+
+/* ESTILOS DE CADA COLUMNA */
+.footer-columna {
+    text-align: left;
+}
+
+/* Columna 1: Logo y frase */
+.logo-footer img {
+    height: 45px; /* Mismo tamaño que en tu barra de navegación superior */
+    width: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.footer-frase {
+    font-style: italic;
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Columnas de texto (Contacto y Horarios) */
+.footer-columna h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #FFCD00; /* Los títulos del footer brillan en amarillo CAT */
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-columna p {
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Enlace del teléfono */
+.tel-enlace {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.tel-enlace:hover {
+    color: #FFCD00; /* Al pasar el mouse, el número se ilumina en amarillo */
+}
+
+/* ====================================================== */
+/* EL SUBFOOTER (BARRA FINAL INFERIOR)                     */
+/* ====================================================== */
+.subfooter {
+    background-color: #0a0a0a; /* Un negro aún más oscuro para contrastar */
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #222222; /* Línea divisoria muy sutil */
+}
+
+.subfooter p {
+    color: #666666; /* Gris oscuro para que sea discreto */
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* ------------------------------------------------------ */
+/* RESPONSIVO PARA CELULARES                             */
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+    .footer-contenedor {
+        grid-template-columns: 1fr; /* En celulares las columnas se apilan verticalmente */
+        gap: 30px;
+        text-align: center; /* Centra todo en móviles para que se vea más ordenado */
+    }
+    
+    .footer-columna {
+        text-align: center;
+    }
+    
+    .footer-sitio {
+        padding-top: 40px;
+    }
+}
+
+/* ====================================================== */
+/* ESTILOS PARA LA PÁGINA DE CONTACTO                     */
+/* ====================================================== */
+
+.contacto-seccion {
+    width: 100%;
+    padding: 120px 0 60px 0; /* Margen superior amplio para que no lo tape la barra fija */
+    min-height: calc(100vh - 70px); /* Asegura que ocupe casi toda la pantalla */
+    display: flex;
+    align-items: center;
+}
+
+.contacto-contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Columna de info un poco más chica que el formulario */
+    gap: 50px;
+}
+
+/* BLOQUE IZQUIERDO: INFORMACIÓN */
+.contacto-info {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contacto-info h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.contacto-info p {
+    color: #444444;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.info-detalles p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.info-detalles a {
+    color: #111111;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.info-detalles a:hover {
+    color: #FFCD00;
+}
+
+/* BOTÓN DE WHATSAPP */
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366; /* Verde oficial de WhatsApp */
+    color: #ffffff !important;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20ba5a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* BLOQUE DERECHO: FORMULARIO (Translúcido igual que tus tarjetas) */
+.contacto-formulario {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    border-top: 5px solid #FFCD00; /* Detalle amarillo Caterpillar */
+    text-align: left;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.campo-grupo label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #111111;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para inputs, select y textarea */
+.campo-grupo input, 
+.campo-grupo select, 
+.campo-grupo textarea {
+    padding: 12px 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+    transition: border-color 0.3s ease;
+}
+
+.campo-grupo input:focus, 
+.campo-grupo select:focus, 
+.campo-grupo textarea:focus {
+    outline: none;
+    border-color: #FFCD00; /* Al escribir, el borde se ilumina en amarillo CAT */
+}
+
+/* BOTÓN DE ENVIAR FORMULARIO */
+.btn-enviar {
+    width: 100%;
+    background-color: #111111; /* Negro para contrastar fuerte */
+    color: #FFFFFF;
+    border: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #FFCD00; /* Cambia a amarillo CAT al pasar el mouse */
+    color: #111111;
+}
+
+/* ------------------------------------------------------ */
+/* AJUSTE RESPONSIVO PARA PANTALLAS CHICAS                */
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+    .contacto-seccion {
+        padding-top: 100px;
+    }
+    
+    .contacto-contenedor {
+        grid-template-columns: 1fr; /* Se apilan verticalmente en celulares */
+        gap: 40px;
+    }
+    
+    .contacto-info {
+        text-align: center;
+    }
+    
+    .contacto-formulario {
+        padding: 25px 20px;
+    }
+}
+
+/* ====================================================== */
+/* ESTILOS PARA LA PÁGINA DE SERVICIOS                    */
+/* ====================================================== */
+
+/* ENCABEZADO DE LA PÁGINA */
+.servicios-header {
+    width: 100%;
+    padding: 140px 0 60px 0; /* Margen para no chocar con la barra fixed */
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.servicios-header h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.servicios-header p {
+    color: #555555;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* BLOQUES DE CONTENIDO GENERAL */
+.servicios-bloque {
+    width: 100%;
+    padding: 70px 0;
+}
+
+.servicios-contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.bloque-titulo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Rejilla adaptativa */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 30px;
+}
+
+/* CONFIGURACIÓN BLOQUE 1 (CLARO) */
+.bloque-claro {
+    background-color: transparent;
+}
+
+.bloque-claro .bloque-titulo {
+    color: #111111;
+    border-bottom: 4px solid #FFCD00; /* Subrayado amarillo */
+    padding-bottom: 5px;
+}
+
+.servicio-tarjeta-interna {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    text-align: left;
+    border-left: 4px solid #FFCD00;
+}
+
+.servicio-tarjeta-interna h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    color: #111111;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.servicio-tarjeta-interna p {
+    font-family: Arial, sans-serif;
+    color: #444444;
+    line-height: 1.6;
+    font-size: 0.98rem;
+}
+
+/* Banner destacado de trabajos de precisión */
+.precision-banner {
+    background-color: #111111;
+    color: #ffffff;
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 6px;
+    text-align: left;
+    border-right: 6px solid #FFCD00;
+}
+
+.precision-banner h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #FFCD00;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.precision-banner p {
+    font-family: Arial, sans-serif;
+    color: #dddddd;
+    line-height: 1.6;
+}
+
+/* CONFIGURACIÓN BLOQUE 2 (OSCURO) */
+.bloque-oscuro {
+    background-color: #111111; /* Color asfalto oscuro */
+    color: #ffffff;
+    border-top: 4px solid #FFCD00;
+}
+
+.bloque-oscuro .bloque-titulo {
+    color: #ffffff;
+}
+
+/* Modificación de la rejilla para el bloque de transporte (3 columnas) */
+.grid-tres {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.servicio-tarjeta-interna.oscura {
+    background-color: #1e1e1e;
+    border-left: none;
+    border-bottom: 4px solid #FFCD00; /* Detalle amarillo abajo */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.servicio-tarjeta-interna.oscura h3 {
+    color: #FFCD00; /* Títulos brillan en amarillo */
+}
+
+.servicio-tarjeta-interna.oscura p {
+    color: #cccccc;
+}
+
+/* ------------------------------------------------------ */
+/* RESPONSIVO PARA TABLETS Y CELULARES                    */
+/* ------------------------------------------------------ */
+@media (max-width: 992px) {
+    .grid-tres {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .servicios-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .servicios-grid, .grid-tres {
+        grid-template-columns: 1fr; /* 1 columna vertical en celulares */
+        gap: 20px;
+    }
+    
+    .servicios-bloque {
+        padding: 40px 0;
+    }
+}
+
+/* ====================================================== */
+/* ESTILOS PARA LA PÁGINA DE VIAJES Y PRECIOS             */
+/* ====================================================== */
+
+.viajes-header {
+    width: 100%;
+    padding: 140px 0 40px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.viajes-header h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.viajes-header p {
+    color: #555555;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 5px;
+}
+
+.viajes-contenedor-principal {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- BLOQUE 1: EXCAVADORA --- */
+.seccion-excavadora {
+    margin-bottom: 50px;
+}
+
+.tarjeta-excavadora {
+    display: flex; /* Alinea foto e info lado a lado */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #FFCD00;
+}
+
+.excavadora-img {
+    width: 40%;
+    min-height: 250px;
+    background-color: #222;
+}
+
+.excavadora-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.excavadora-info {
+    width: 60%;
+    padding: 35px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.excavadora-info h2 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 2rem;
+    color: #111111;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.lista-precios {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-precios li {
+    font-size: 1.05rem;
+    color: #333333;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 20px;
+}
+
+.lista-precios li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    color: #FFCD00; /* Viñeta cuadrada amarilla */
+}
+
+.lista-precios .nota {
+    display: block;
+    font-size: 0.9rem;
+    color: #666666;
+    margin-top: 2px;
+}
+
+/* --- BLOQUE 2: DOS COLUMNAS DE CAMIONES --- */
+.seccion-camiones {
+    margin-bottom: 50px;
+}
+
+.camiones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+    gap: 40px;
+}
+
+.columna-camion {
+    background-color: #111111; /* Fondo oscuro asfalto */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-top: 4px solid #FFCD00;
+}
+
+.camion-header-tarjeta {
+    position: relative;
+    height: 160px;
+    background-color: #222;
+}
+
+.camion-header-tarjeta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5; /* Oscurece la foto para que se lea el texto arriba */
+}
+
+.camion-header-tarjeta h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.8rem;
+    color: #FFCD00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Listas de precios tipo tabla */
+.tabla-viajes {
+    list-style: none;
+    padding: 25px;
+    margin: 0;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.tabla-viajes li {
+    display: flex;
+    justify-content: space-between; /* Texto izquierda, precio derecha */
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #222222;
+    color: #dddddd;
+    font-size: 0.98rem;
+}
+
+.tabla-viajes li:last-child {
+    border-bottom: none;
+}
+
+.tabla-viajes strong {
+    color: #ffffff;
+    font-size: 1.1rem;
+    background-color: #222222;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+/* Estilo especial para la advertencia del viaje de piedra en 7m */
+.tabla-viajes li.no-recomendado {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(217, 83, 79, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(217, 83, 79, 0.2);
+}
+
+.tabla-viajes li.no-recomendado .alerta {
+    color: #d9534f !important; /* Rojo sutil de advertencia */
+}
+
+.tabla-viajes li.no-recomendado small {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* --- BLOQUE 3: LEYENDA INFERIOR --- */
+.seccion-leyenda {
+    margin-bottom: 60px;
+}
+
+.leyenda-caja {
+    background-color: rgba(255, 205, 0, 0.1); /* Fondo amarillo muy suave */
+    border: 2px solid #FFCD00;
+    border-radius: 6px;
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.leyenda-icono {
+    font-size: 2.5rem;
+}
+
+.leyenda-caja p {
+    color: #111111;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ------------------------------------------------------ */
+/* RESPONSIVO PARA MÓVILES                                */
+/* ------------------------------------------------------ */
+@media (max-width: 850px) {
+    .tarjeta-excavadora {
+        flex-direction: column; /* Foto arriba, info abajo en celulares */
+    }
+    
+    .excavadora-img, .excavadora-info {
+        width: 100%;
+    }
+    
+    .excavadora-img {
+        height: 200px;
+    }
+    
+    .camiones-grid {
+        grid-template-columns: 1fr; /* Una columna vertical en móviles */
+        gap: 30px;
+    }
+    
+    .leyenda-caja {
+        flex-direction: column;
+        text-align: center;
+    }
+}
