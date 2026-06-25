@@ -3,42 +3,47 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background-color:#FFD515;
+body {
+    background-color: #FFD515;
     color: white;
     font-family: arial, sans-serif;
     margin: 0;
-}
-h1{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 900;
-    color:#DE0B0F;
-    font-size: 4rem;
-    text-align: center;
-    margin-top: clamp(2rem, 8vh, 6rem);
+    padding-top: 90px; /* Al darle padding al body, la página entera se baja para dejarle espacio limpio al menú fixed */
 }
 
-/* CONTENEDOR PRINCIPAL (CUADRO FLOTANTE) */
+/* Este era tu h1 viejo, lo dejamos exclusivo por si se usa en otro lado, pero le bajamos el tamaño */
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    color: #DE0B0F;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* El nuevo estilo para el título dentro del cuadro blanco */
+.titulo-bienvenida {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    color: #DE0B0F;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* CONTENEDOR PRINCIPAL ACTUALIZADO */
 .inicio {
-    /* Cambiamos a posicionamiento relativo/bloque para que respete el texto de arriba */
     position: relative;
-    
-    /* === AQUÍ ESTÁ EL CAMBIO: Subimos de 40px a 120px === */
-    margin: 120px auto 60px auto; 
-    
-    /* Todo lo demás se queda exactamente igual */
+    margin: 30px auto 40px auto; /* Reducimos márgenes bruscos */
     width: 90%;             
     max-width: 650px;       
     height: auto;
-    
     background-color: rgba(255, 255, 255, 0.85); 
     backdrop-filter: blur(8px);                 
-    
-    padding: 2.5rem 2rem;   
+    padding: 2rem 1.5rem;   
     text-align: center;     
     border-radius: 8px;     
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); 
-    
     border-top: 5px solid #FFCD00; 
 }
 
@@ -97,13 +102,13 @@ h1{
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px; /* Declaramos una altura fija limpia */
+    height: 70px;
     background-color: #111111;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    z-index: 1000; /* Evita que el contenido de la página se encime visualmente con el menú */
+    z-index: 1000; /* Obliga al menú a flotar SIEMPRE por encima de los textos */
 }
 
 /* Logo */
@@ -169,41 +174,35 @@ h1{
 
 /* 3. RESPONSIVO (Para Celulares y Tablets) */
 @media (max-width: 768px) {
+    /* Ajustamos la barra en celulares */
     .navegacion {
-        padding: 0 20px; /* Menos espacio a los lados en pantallas chicas */
-    }
-
-    /* El menú se convierte en una lista vertical oculta o compacta */
-    .menu {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
         height: auto;
-        background-color: var(--gris-oscuro);
-        border-bottom: 3px solid var(--amarillo-cat);
-        padding: 10px 0;
-        
-        /* Por defecto en un diseño responsivo real usarías JS para ocultarlo/mostrarlo.
-           Para mantenerlo simple aquí, los botones se acomodan uno abajo del otro uniformemente */
+        padding: 10px 5%;
+        flex-direction: column; /* Pone el logo arriba y los botones abajo */
+        gap: 10px;
     }
 
-    .menu li {
-        width: 100%;
+    /* Hacemos que la lista de enlaces se distribuya bien */
+    .menu {
+        flex-direction: row; 
+        flex-wrap: wrap; /* Si no caben, se bajan ordenadamente */
+        justify-content: center;
+        gap: 12px;
     }
 
     .menu a {
-        width: 100%;
-        padding: 15px 20px;
-        justify-content: center; /* Centra el texto en móviles */
-        border-bottom: 1px solid #000;
+        font-size: 0.85rem; /* Letras un pelo más chicas para que quepan perfectamente en cualquier pantalla */
+        padding: 6px 10px;
     }
-    
-    .menu a:hover {
-        background-color: var(--amarillo-cat);
-        color: var(--oscuro-cat);
+
+    /* Ajustamos los textos internos del cuadro para que no se saturen */
+    .titulo-bienvenida {
+        font-size: 1.6rem; /* Achica el título rojo para que no invada toda la pantalla del cel */
+    }
+
+    .inicio {
+        padding: 1.5rem 1rem;
+        margin-top: 20px;
     }
 }
 
