@@ -23,25 +23,22 @@ h1{
     /* Cambiamos a posicionamiento relativo/bloque para que respete el texto de arriba */
     position: relative;
     
-    /* MARGEN SUPERIOR: Esto es lo que empuja el cuadro hacia abajo. 
-       Ajusta el '40px' si quieres que se separe más o menos del texto inicial */
-    margin: 40px auto 60px auto; 
+    /* === AQUÍ ESTÁ EL CAMBIO: Subimos de 40px a 120px === */
+    margin: 120px auto 60px auto; 
     
-    /* RESPONSIVIDAD: 90% de ancho en celulares, máximo 650px en computadoras */
+    /* Todo lo demás se queda exactamente igual */
     width: 90%;             
     max-width: 650px;       
     height: auto;
     
-    /* Diseño visual: Fondo translúcido con efecto desenfoque moderno */
     background-color: rgba(255, 255, 255, 0.85); 
     backdrop-filter: blur(8px);                 
     
-    padding: 2.5rem 2rem;   /* Espaciado interno */
-    text-align: center;     /* Centra los textos y la imagen internamente */
-    border-radius: 8px;     /* Bordes redondeados sutiles */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+    padding: 2.5rem 2rem;   
+    text-align: center;     
+    border-radius: 8px;     
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); 
     
-    /* Detalle Caterpillar: Línea superior amarilla industrial */
     border-top: 5px solid #FFCD00; 
 }
 
@@ -100,15 +97,13 @@ h1{
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
-    background-color: var(--oscuro-cat);
+    height: 70px; /* Declaramos una altura fija limpia */
+    background-color: #111111;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
-    z-index: 1000;
-    border-bottom: 4px solid var(--amarillo-cat); /* Detalle estético industrial */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 0 5%;
+    z-index: 1000; /* Evita que el contenido de la página se encime visualmente con el menú */
 }
 
 /* Logo */
@@ -154,7 +149,7 @@ h1{
 }
 
 .menu a {
-    color: #000;
+    color: #FFCD00;
     text-decoration: none;
     font-size: 15px;
     font-weight: 600;
@@ -922,8 +917,8 @@ h1{
 
 .contacto-seccion {
     width: 100%;
-    padding: 120px 0 60px 0; /* Margen superior amplio para que no lo tape la barra fija */
-    min-height: calc(100vh - 70px); /* Asegura que ocupe casi toda la pantalla */
+    padding: 140px 0 60px 0; /* 140px arriba es ideal para alejarlo por completo del menú fixed */
+    min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
 }
@@ -1096,9 +1091,8 @@ h1{
 /* ENCABEZADO DE LA PÁGINA */
 .servicios-header {
     width: 100%;
-    padding: 140px 0 60px 0; /* Margen para no chocar con la barra fixed */
+    padding: 140px 0 60px 0; /* Empuja el título "Servicios Profesionales" abajo del menú */
     text-align: center;
-    font-family: Arial, sans-serif;
 }
 
 .servicios-header h1 {
@@ -1270,9 +1264,8 @@ h1{
 
 .viajes-header {
     width: 100%;
-    padding: 140px 0 40px 0;
+    padding: 140px 0 40px 0; /* Evita el solapamiento en viajes */
     text-align: center;
-    font-family: Arial, sans-serif;
 }
 
 .viajes-header h1 {
